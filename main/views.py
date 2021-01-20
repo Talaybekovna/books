@@ -26,3 +26,8 @@ def add_books(request):
                     year=year)
     fields.save()
     return redirect(books)
+
+def delete_books(request, id):
+    books = Books.objects.get(id=id)
+    books.delete()
+    return redirect(books)

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BookStore</title>    
+    <title>Books</title>    
     <!--<link rel="stylesheet" href="./styles/index.css" />-->
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
 </head>
@@ -23,10 +23,10 @@
                 <button class="create_button">Добавить</button>
             </form>
         </div>
-        <div class="book_container">
+        <div class="books_container">
             {% for books in books_list %}
-            <div class="book_item">
-                <div class="book_item_header">
+            <div class="books_item">
+                <div class="books_item_header">
                     <h3>{{ books.title }}</h3>
                     <p>{{ books.subtitle }}</p>
                     <p>{{ books.description }}</p>
@@ -36,11 +36,11 @@
                     <p>{{ books.year }}</p>
                 </div>
 
-                <div class="book_item_footer">
+                <div class="books_item_footer">
                     <p>{{ books.date }}</p>
                     <div class="action_buttons">
                         <img src="{% static './icons/unmarked.png' %}" />
-                        <img src="{% static './icons/deleted.png' %}" />
+                        <a href="{% url 'delete-books' books.id %}"><img src="{% static './icons/deleted.png' %}" /></a>
                     </div>
                 </div>
             </div>
