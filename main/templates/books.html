@@ -42,6 +42,7 @@
 
                 <div class="books_item_footer">
                     <p>{{ books.date }}</p>
+                    <a href="{% url 'detail' books.id %}"><p>Детали</p></a>
                     <div class="action_buttons">
                         {% if books.is_favorites %}
                             <a href="{% url 'mark' books.id %}"><img src="{% static './icons/marked.png' %}" /></a>

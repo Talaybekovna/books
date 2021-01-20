@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,34 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books Detail</title>
-    <link rel="stylesheet" href="./detail.css">
+    <!--<link rel="stylesheet" href="./styles/detail.css">-->
+    <link rel="stylesheet" href="{% static 'styles/detail.css' %}" />
 </head>
 
 <body>
     <div class="detail_container">
+        {% for books in books_list %}
         <div class="books_detail">
-            <h3>Замок из стекла</h3>
-            <p>Что скрывает прошлое</p>
-            <p>Джаннет Уоллс - молодая, красивая и очень успешная писательница, романы которой удостаиваются престижных
-                наград и экранизируются Голливудом. Но, как и у любого интересного писателя, у Джаннет есть свое
-                прошлое...</p>
-            <p>310 сомов</p>
-            <p>Современная зарубежная литература</p>
-            <p>Джаннет Уоллс</p>
-            <p>2014</p>
+            <h3>{{ books.title }}</h3>
+            <p>{{ books.subtitle }}</p>
+            <p>{{ books.description }}</p>
+            <p>{{ books.price }}</p>
+            <p>{{ books.genre }}</p>
+            <p>{{ books.author }}</p>
+            <p>{{ books.year }}</p>
         </div>
-
-        <div class="books_detail">
-            <h3>Замок из стекла</h3>
-            <p>Что скрывает прошлое</p>
-            <p>Джаннет Уоллс - молодая, красивая и очень успешная писательница, романы которой удостаиваются престижных
-                наград и экранизируются Голливудом. Но, как и у любого интересного писателя, у Джаннет есть свое
-                прошлое...</p>
-            <p>310 сомов</p>
-            <p>Современная зарубежная литература</p>
-            <p>Джаннет Уоллс</p>
-            <p>2014</p>
-        </div>
+        {% endfor %}
     </div>
 </body>
 
