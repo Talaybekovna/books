@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #263238;
+}
+
+.detail_container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.books_detail{
+    border: 2px solid #263238;
+    border-radius: 10px;
+    width: 30%;
+    background-color: #a2cfe6;
+    padding: 20px;
+    margin: 10px;
+}
