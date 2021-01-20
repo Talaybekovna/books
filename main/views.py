@@ -27,7 +27,13 @@ def add_books(request):
     fields.save()
     return redirect(books)
 
-def delete_books(request, id):
-    books = Books.objects.get(id=id)
-    books.delete()
+def delete(request, id):
+    delete_book = Books.objects.get(id=id)
+    delete_book.delete()
+    return redirect(books)
+
+def mark(request, id):
+    mark_book = Books.objects.get(id=id)
+    mark_book.is_favorites =True
+    mark_book.save()
     return redirect(books)

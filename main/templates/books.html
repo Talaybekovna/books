@@ -25,7 +25,11 @@
         </div>
         <div class="books_container">
             {% for books in books_list %}
-            <div class="books_item">
+            <div class="books_item
+                {% if books.is_favorites %}
+                    marked
+                {% endif %}
+            ">
                 <div class="books_item_header">
                     <h3>{{ books.title }}</h3>
                     <p>{{ books.subtitle }}</p>
@@ -39,8 +43,13 @@
                 <div class="books_item_footer">
                     <p>{{ books.date }}</p>
                     <div class="action_buttons">
-                        <img src="{% static './icons/unmarked.png' %}" />
-                        <a href="{% url 'delete-books' books.id %}"><img src="{% static './icons/deleted.png' %}" /></a>
+                        {% if books.is_favorites %}
+                            <a href="{% url 'mark' books.id %}"><img src="{% static './icons/marked.png' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark' books.id %}"><img src="{% static './icons/unmarked.png' %}" /></a>
+                        {% endif %}
+                        
+                            <a href="{% url 'delete' books.id %}"><img src="{% static './icons/deleted.png' %}" /></a>
                     </div>
                 </div>
             </div>
