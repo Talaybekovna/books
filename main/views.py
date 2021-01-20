@@ -1,4 +1,4 @@
 from django.shortcuts import render, HttpResponse, redirect
 
 def homepage(request):
-    return HttpResponse("Homepage")
+    return render(request, "books.html")
