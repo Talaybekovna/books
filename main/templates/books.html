@@ -21,46 +21,27 @@
                 <button class="create_button">Добавить</button>
         </div>
         <div class="book_container">
+            {% for books in books_list %}
             <div class="book_item">
                 <div class="book_item_header">
-                    <h3>Замок из стекла</h3>
-                    <p>Что скрывает прошлое</p>
-                    <p>Джаннет Уоллс - молодая, красивая и очень успешная писательница, романы которой удостаиваются престижных наград и экранизируются Голливудом. Но, как и у любого интересного писателя, у Джаннет есть свое прошлое...</p>
-                    <p>310 сомов</p>
-                    <p>Современная зарубежная литература</p>
-                    <p>Джаннет Уоллс</p>
-                    <p>2014</p>
+                    <h3>{{ books.title }}</h3>
+                    <p>{{ books.subtitle }}</p>
+                    <p>{{ books.description }}</p>
+                    <p>{{ books.price }}</p>
+                    <p>{{ books.genre }}</p>
+                    <p>{{ books.author }}</p>
+                    <p>{{ books.year }}</p>
                 </div>
 
                 <div class="book_item_footer">
-                    <p>20.01.2021 <span>18:39</span></p>
+                    <p>{{ books.date }}</p>
                     <div class="action_buttons">
-                        <img src="./icons/unmarked.png" />
-                        <img src="./icons/deleted.png" />
+                        <img src="{% static './icons/unmarked.png' %}" />
+                        <img src="{% static './icons/deleted.png' %}" />
                     </div>
                 </div>
             </div>
-
-            <div class="book_item marked">
-                <div class="book_item_header">
-                    <h3>Замок из стекла</h3>
-                    <p>Что скрывает прошлое</p>
-                    <p>Джаннет Уоллс - молодая, красивая и очень успешная писательница, романы которой удостаиваются престижных наград и экранизируются Голливудом. Но, как и у любого интересного писателя, у Джаннет есть свое прошлое...</p>
-                    <p>310 сомов</p>
-                    <p>Современная зарубежная литература</p>
-                    <p>Джаннет Уоллс</p>
-                    <p>2014</p>
-                </div>
-
-                <div class="book_item_footer">
-                    <p>20.01.2021 <span>18:39</span></p>
-                    <div class="action_buttons">
-                        <img src="./icons/marked.png" />
-                        <img src="./icons/deleted.png" />
-                    </div>
-                </div>
-            </div>
-
+            {% endfor %}
         </div>
     </section>
 </body>
