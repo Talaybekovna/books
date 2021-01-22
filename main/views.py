@@ -34,13 +34,10 @@ def delete(request, id):
 
 def mark(request, id):
     mark_book = Books.objects.get(id=id)
-    mark_book.is_favorites =True
+    mark_book.is_favorites = not mark_book.is_favorites
     mark_book.save()
     return redirect(books)
 
 def detail(request, id):
-    books_list = Books.objects.all()
-    book_detail = Books.objects.get(id=id)
-    book_detail.save()
-    return render(request, "books_detail.html", {"books_list": books_list})
-    
+    text = Books.objects.get(id=id)
+    return render(request, "books_detail.html", {"books": text})

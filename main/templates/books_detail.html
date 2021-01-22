@@ -11,8 +11,7 @@
 </head>
 
 <body>
-    <div class="detail_container">
-        {% for books in books_list %}
+    <div class="detail_container">       
         <div class="books_detail">
             <h3>{{ books.title }}</h3>
             <p>{{ books.subtitle }}</p>
@@ -21,8 +20,7 @@
             <p>{{ books.genre }}</p>
             <p>{{ books.author }}</p>
             <p>{{ books.year }}</p>
-        </div>
-        {% endfor %}
+        </div>       
     </div>
 </body>
 
