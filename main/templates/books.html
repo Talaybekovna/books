@@ -1,17 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>    
-    <!--<link rel="stylesheet" href="./styles/index.css" />-->
+    <title>Books</title>
     <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
 </head>
+
 <body>
     <section>
         <div class="create_container">
-            <form action="{% url 'add-books' %}" method="POST">
+            <form action="{% url 'add-book' %}" method="POST">
                 {% csrf_token %}
                 <input class="create_input" type="text" placeholder="Заголовок" name="books_title" />
                 <input class="create_input" type="text" placeholder="Подзаголовок" name="books_subtitle" />
@@ -42,20 +43,21 @@
 
                 <div class="books_item_footer">
                     <p>{{ books.date }}</p>
-                    <p><a href="{% url 'detail' books.id %}">Детали</a></p>
+                    <p><a href="{% url 'BooksDetail' books.id %}">Детали</a></p>
                     <div class="action_buttons">
                         {% if books.is_favorites %}
-                            <a href="{% url 'mark' books.id %}"><img src="{% static './icons/marked.png' %}" /></a>
+                        <a href="{% url 'mark-book' books.id %}"><img src="{% static './icons/marked.png' %}" /></a>
                         {% else %}
-                            <a href="{% url 'mark' books.id %}"><img src="{% static './icons/unmarked.png' %}" /></a>
+                        <a href="{% url 'mark-book' books.id %}"><img src="{% static './icons/unmarked.png' %}" /></a>
                         {% endif %}
-                        
-                            <a href="{% url 'delete' books.id %}"><img src="{% static './icons/deleted.png' %}" /></a>
+
+                        <a href="{% url 'delete-book' books.id %}"><img src="{% static './icons/deleted.png' %}" /></a>
                     </div>
-                </div>                
+                </div>
             </div>
             {% endfor %}
         </div>
     </section>
 </body>
+
 </html>

@@ -23,9 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="homepage"),
     path("books/", books, name="books"),
-    path("add-books/", add_books, name="add-books"),
-    path("delete/<id>/", delete, name="delete"),
-    path("mark/<id>/", mark, name="mark"),
-    path("detail/<id>/", detail, name="detail"), 
+    path("add-book/", add_book, name="add-book"),
+    path("delete-book/<id>/", delete_book, name="delete-book"),
+    path("mark-book/<id>/", mark_book, name="mark-book"),
+    path("BooksDetail/<id>/", BooksDetail, name="BooksDetail"), 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

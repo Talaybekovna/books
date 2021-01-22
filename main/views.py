@@ -8,7 +8,7 @@ def books(request):
     books_list = Books.objects.all()
     return render(request, "books.html", {"books_list": books_list})
 
-def add_books(request):
+def add_book(request):
     form = request.POST
     title = form["books_title"]
     subtitle = form["books_subtitle"]
@@ -27,17 +27,17 @@ def add_books(request):
     fields.save()
     return redirect(books)
 
-def delete(request, id):
-    delete_book = Books.objects.get(id=id)
-    delete_book.delete()
+def delete_book(request, id):
+    deleted = Books.objects.get(id=id)
+    deleted.delete()
     return redirect(books)
 
-def mark(request, id):
-    mark_book = Books.objects.get(id=id)
-    mark_book.is_favorites = not mark_book.is_favorites
-    mark_book.save()
+def mark_book(request, id):
+    marked_book = Books.objects.get(id=id)
+    marked_book.is_favorites = not marked_book.is_favorites
+    marked_book.save()
     return redirect(books)
 
-def detail(request, id):
+def BooksDetail(request, id):
     text = Books.objects.get(id=id)
     return render(request, "books_detail.html", {"books": text})
